@@ -12,6 +12,7 @@ function sayHello(name){
     return "Hello, " + name;
 }
 
+console.log(sayHello("Codeup"));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -51,6 +52,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(num){
+    console.log("checking for " + num);
     if (num == 2){
         return true;
     }else {
@@ -72,7 +74,7 @@ console.log(isTwo(random));
 function calculatorTip(percent, total){
     var convertDiscount = percent/100;
     var tip =total * convertDiscount;
-    return "Tip amount: $" +tip.toFixed(2);
+    return "$" +tip.toFixed(2);
 }
 /**
  * TODO:
@@ -82,7 +84,7 @@ function calculatorTip(percent, total){
  */
 var total = prompt("How much is you bill total");
 var tip = prompt("What percent would yo like to tip? ");
-console.log(calculatorTip(tip, total));
+alert("The calculated tip is: " + calculatorTip(tip, total));
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
