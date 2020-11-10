@@ -19,7 +19,19 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-
+//var userColor = prompt("Please enter your favorite color");
+var colorMessage;
+function analyzeColor(color){
+    if(color == "blue"){
+      return  "blue is the color of the sky" ;
+    }else if (color == "red"){
+        return "Strawberries are red";
+    }else if(color == "cyan"){
+        return "I dont know anything about cyan";
+    }else
+       return color + " is not part of the list";
+}
+//console.log(analyzeColor(userColor));
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -32,19 +44,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-
+console.log("Random color chosen was " + randomColor );
+console.log(analyzeColor(randomColor));
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-
+function analyzeColors(color) {
+    switch (color) {
+        case "blue" :
+            return "blue is the color of the sky";
+            break;
+        case "red" :
+            return "Strawberries are red";
+            break;
+        case "cyan" :
+            return  "I don't know anything about cyan";
+            break;
+        default:
+            return color + " is a beautiful color";
+            break;
+    }
+}
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-
+var colorVariable =prompt("Please enter your favorite color");
+alert(analyzeColor(colorVariable));
 /* ########################################################################## */
 
 /**
@@ -66,7 +95,33 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+var totalBill =prompt("Please enter the amount of your total bill");
+var discount;
+function calculateTotal(totalBill) {
+    switch (luckyNumber) {
+        case 0 :
+            return totalBill;
+            break;
+        case 1 :
+            return (totalBill* (1-.1));
+            break;
+        case 2 :
+            return (totalBill* (1-.2));
+            break;
+        case 3 :
+            return (totalBill* (1-.35));
+            break;
+        case 4 :
+            return (totalBill * .5);
+            break;
+        case 5 :
+            return totalBill-totalBill;
+            break;
+        default:
+            return "You did not receive a discount today, sorry try again!";
+            break;
+    }
+}
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -74,8 +129,10 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+//Generate a random number between 0 and 6
+var luckyNumber = Math.floor(Math.random() * 6);
+console.log("Your bill total is: " + totalBill);
+console.log("And your lucky number " + luckyNumber + ", therefore your total bill after discount is $" +calculateTotal(totalBill));
 
 /**
  * TODO:
@@ -93,3 +150,15 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+var luckyNumberTwo = confirm("Would you like to enter your lucky number?");
+if(luckyNumberTwo){
+   luckyNumberTwo = prompt("Enter your lucky number");
+}
+if(luckyNumberTwo){
+    alert("your lucky number is " + luckyNumberTwo);
+    alert("Your lucky number plus 100 is " + (parseFloat(luckyNumberTwo) +100));
+    if(luckyNumberTwo * -1 == -luckyNumberTwo){
+        alert( luckyNumberTwo + " is a positive number")
+    }else
+        alert(luckyNumberTwo +" is a negative number")
+}
