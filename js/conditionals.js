@@ -161,4 +161,4 @@ if(luckyNumberTwo){
         alert( luckyNumberTwo + " is a positive number")
     }else
         alert(luckyNumberTwo +" is a negative number")
-}
+ }
