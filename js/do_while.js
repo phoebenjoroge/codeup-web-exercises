@@ -4,12 +4,20 @@
  */
 function sellCones(){
     var allCones = Math.floor(Math.random() * 50) + 50;
+    console.log("Cones available for sale today " + allCones); //cones available for sale
     do{
-     //   console.log("Cones available for sale today " + allCones); //cones available for sale
-        var soldCones= Math.floor(Math.random() * 5) + 1;   //sold cones
-        var availableCones = allCones - soldCones;         //cones still available for sale
-        console.log(soldCones + " cones sold, you have " + availableCones + " left to sell for the day");
-        soldCones++;
+        if(allCones > 0) {
+            var soldCones = Math.floor(Math.random() * 5) + 1;   // generate number of cones sold
+            allCones = allCones - soldCones;         //cones still available for sale
+            console.log(soldCones + " cones sold, you have " + allCones + " left to sell for the day");
+            if(allCones == 0){
+                console.log("Yay! I sold them all.");
+            }
+        }else if(soldCones > allCones){
+            console.log("Cannot sell you " + +" cones, I only have " + (allCones - soldCones));
+        }
+
     }while(soldCones < allCones);
+
 }
-//sellCones();
+sellCones();
