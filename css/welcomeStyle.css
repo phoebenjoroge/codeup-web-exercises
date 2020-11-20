@@ -1,5 +1,9 @@
+body{
+    background-image: url("../pics/memphis-mini-dark.png");
+}
 .fancy-header{
     color: rebeccapurple;
+
 }
 h1{
     text-align: center;
@@ -11,11 +15,14 @@ h1{
     margin: 10px;
     font-family: "Lucida Console", Courier, monospace;
     font-size: large;
+    padding: 20px;
+    margin: 50px;
 }
 .image{
     width: 500px;
     height: 400px;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 
 }
 .vision{
@@ -47,3 +54,4 @@ a:hover {
 a:active {
     color: blue;
 }
+/*background-color: rgba(0,0,0,0.2); does opacity -the 0.2 */
