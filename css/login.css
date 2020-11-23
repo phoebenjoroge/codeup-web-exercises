@@ -36,6 +36,7 @@ fieldset {
     position: center;
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
     margin: auto;
+    max-width: 400px;
 }
 
 .form-group {
