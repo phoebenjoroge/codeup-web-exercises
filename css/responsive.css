@@ -1,0 +1,31 @@
+body{
+    background-color: #9B8585;
+}
+@media screen and (min-width: 320px){
+    body{
+        background-color: #2C083C;
+    }
+}
+
+@media screen and (min-width: 480px){
+    body{
+        background-color: #D8DC79;
+    }
+}
+
+@media screen and (min-width: 768px){
+    body{
+        background-color: #3B94D9;
+    }
+}
+@media screen and (min-width: 1024px){
+    body{
+        background-color: darkgreen;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    body{
+        background-color: burlywood;
+    }
+}
