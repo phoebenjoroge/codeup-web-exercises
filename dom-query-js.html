@@ -37,12 +37,12 @@
         var btn3 = document.getElementById('btn3');
 
         //button 1
-        btn1.addEventListener('click', function (event){
+        btn1.addEventListener('click', function (){
             alert('Haha, just kidding. Nothing to see here!')
         });
 
         //button 2
-        var changeList = btn2.addEventListener("click", function (event){
+        var changeList = btn2.addEventListener("click", function (){
             var name = prompt("Enter your name please");
             var listItems = document.getElementsByTagName("li");
             for(var i=0; i < listItems.length; i++){
