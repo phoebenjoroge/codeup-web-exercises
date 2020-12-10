@@ -7,7 +7,7 @@ mapboxgl.accessToken = mapBoxToken;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/navigation-guidance-day-v4',
-    center: [-98.4916, 29.4252],
+    center: [-96.79799, 32.78344],
     zoom: 10,
 });
 
@@ -52,31 +52,44 @@ var marker = new mapboxgl.Marker({
 
 
 // TODO TOGETHER: Add a popup to the map over codeup. Set the html as a paragraph that says "Codeup Rocks!"
-// var popup = new mapboxgl.Popup()
-//     .setLngLat([-98.48961921766305, 29.426944540981214])
-//     .setHTML("<p>Codeup Rocks!</p>")
-//     .addTo(map);
-
-// TODO TOGETHER: Comment out the popup we just added. Add a popup to the alamo marker.
-var alamoPopup = new mapboxgl.Popup()
-    .setHTML("<p>Remember the Alamo?</p>")
+var popup = new mapboxgl.Popup()
+        .setLngLat([-96.80572035809392 , 32.778958453506924,])
+    .setHTML("<p>Codeup Rocks!</p>")
     .addTo(map);
 
-marker.setPopup(alamoPopup);
+// TODO TOGETHER: Comment out the popup we just added. Add a popup to the alamo marker.
+// var alamoPopup = new mapboxgl.Popup()
+//     .setHTML("<p>Remember the Alamo?</p>")
+//     .addTo(map);
+//
+// marker.setPopup(alamoPopup);
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup?
 // TODO: Try setting the text by using ".setText()" instead of ".setHTML()"
-
-
+// var popupDMA= new mapboxgl.Popup()
+//     .setLngLat([-96.8017276022746, 32.78837887326757])
+//     .setHTML("<h6>Because Museums are cool!! </h6>")
+//     .addTo(map);
 
 /**********************************************
  * 					Geocoder
  *********************************************/
 // Geocoding Docs --> https://docs.mapbox.com/api/search/#geocoding
-
+let searchString = prompt("What would you like to see?");
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
+geocode(searchString , mapBoxToken).then(function (result){
+    console.log(result);
+     //map.setCenter(result);
+    map.flyTo({center: result, zoom: 14, speed: 0.8, curve:1});
+    //map.setZoom(15);
+    marker.setLngLat(result);
 
+    reverseGeocode(result, mapBoxToken).then(function (placeName){
+        popup.setText(placeName);
+        marker.setPopup(popup);
+    })
+})
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
 //TODO: Instead of setCenter try using map.jumpTo()
