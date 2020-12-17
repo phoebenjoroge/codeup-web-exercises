@@ -5,11 +5,26 @@
     <title>JQuery Practice</title>
 </head>
 <body>
+<div class="container">
+    <h1>JQuery Selectors</h1>
+    <h4>Some of the Continents</h4>
+    <ul>
+        <li>Africa</li>
+        <li>Asia</li>
+        <li>Europe</li>
+        <li>North America</li>
+        <li>South America</li>
+    </ul>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores inventore ipsum iusto possimus. Eaque eos iste necessitatibus nulla porro sequi veniam. Accusamus debitis dolores facilis magnam natus quis repellat. Voluptatum!</p>
+</div>
 <script src="js/jquery-2.2.4.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        alert( 'The DOM has finished loading!' );
-    });
+  $('li').css('font-size', '20px');
+  $('h1 , p, li').css('color', 'purple');
+  $('p').css('font-weight', 'bold');
+  var h1 =$('h1').html();
+  alert('Welcome to '+h1);
+  $('h1 , p, li').css('background-color', 'black');
 </script>
 
 </body>
