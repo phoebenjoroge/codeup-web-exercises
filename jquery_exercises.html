@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>JQuery Selectors</h1>
+    <h1 id="codeup">JQuery Selectors</h1>
     <h4>Some of the Continents</h4>
     <ul>
         <li>Africa</li>
@@ -19,12 +19,22 @@
 </div>
 <script src="js/jquery-2.2.4.js"></script>
 <script type="text/javascript">
-  $('li').css('font-size', '20px');
-  $('h1 , p, li').css('color', 'purple');
-  $('p').css('font-weight', 'bold');
-  var h1 =$('h1').html();
-  alert('Welcome to '+h1);
-  $('h1 , p, li').css('background-color', 'black');
+    $('#codeup').click(
+        function (){
+        $(this).css('background-color', 'yellow')}
+    );
+    $('p').dblclick(
+        function (){
+            $(this).css('font-size', '18px')}
+    );
+    $('li').hover(
+        function() {
+            $(this).css('color', 'red');
+        },
+        function() {
+            $(this).css('color', 'black');
+        }
+    );
 </script>
 
 </body>
