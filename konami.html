@@ -8,34 +8,30 @@
 
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
-    // var  event = [38,38,40,40,37,39,37,39,66,65];
-    //
-    // $(document).keyup(function(event){
-    //     //console.log(event.key);
-    //     alert('hooray');
-    // });
+    var  event = [38,38,40,40,37,39,37,39,66,65];
 
-    // function konami(fn) {
-    //     var input = "";
-    //     var pattern = "3838404037393739666513";
-    //     $(document).keydown(function(e) {
-    //         input += e.keyCode;
-    //         if (input.indexOf(pattern) !== -1) {
-    //             fn();
-    //             input = "";
-    //         }
-    //     });
-    // }
-    // $(document).ready(function() {
-    //     konami(function() {
-    //         alert("You did the Konami! W00t!");
-    //     });
-    // });
-    var event = "3838404037393739666513";
     $(document).keyup(function(event){
-        console.log(event.keyCode);
-        alert("You did the Konami...NOT!");
+        //console.log(event.key);
+        alert('hooray');
     });
+
+    function konami(fn) {
+        var input = "";
+        var pattern = "3838404037393739666513";
+        $(document).keydown(function(e) {
+            input += e.keyCode;
+            if (input.indexOf(pattern) !== -1) {
+                fn();
+                input = "";
+            }
+        });
+    }
+    $(document).ready(function() {
+        konami(function() {
+            alert("You did the Konami! W00t!");
+        });
+    });
+
 </script>
 </body>
 </html>
