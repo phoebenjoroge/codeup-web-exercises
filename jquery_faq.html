@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery National Parks</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+        /*h1, dl{text-align: center}*/
+        .invisible {visibility:hidden;}
+        .color {background-color: #D8DC79;}
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Fun Facts About National Parks</h1>
+    <a href="#" id="toggle">Toggle on/off </a>
+<dl>
+    <dt id="fact1" class="fact" data-id="1">Fact Number One</dt>
+    <dd>Mount McKinley in the Alaska Range of Denali National Park is the highest point in the national parks at 20,302 feet.</dd>
+    <dt id="fact2" class="fact" data-id="2">Fact Number Two</dt>
+    <dd>The parks are also home to the lowest point in the western hemisphere: Badwater Basin in Death Valley, California, is 282 feet below sea level.</dd>
+    <dt id="fact3" class="fact" data-id="3">Fact Number Three</dt>
+    <dd>California and Alaska each have eight national parks.</dd>
+    <dt id="fact4" class="fact" data-id="4">Fact Number Four</dt>
+    <dd>Arches National Park is famous for having the largest concentration of stone arches in the world.</dd>
+    <dt id="fact5" class="fact" data-id="5" >Fact Number Five</dt>
+    <dd>Everglades National Park protects more than 25% of Florida's original everglades (subtropical wetlands).</dd>
+    <dt id="fact6" class="fact" data-id="6">Fact Number Six</dt>
+    <dd>Dry Tortugas National Park in Florida is known for its world-renowned concentration of turtles.</dd>
+    <dt id="fact7" class="fact" data-id="7">Fact Number Seven</dt>
+    <dd>Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000 visitors per year.</dd>
+    <dt id="fact8" class="fact" data-id="8">Fact Number Eight</dt>
+    <dd>At 1,932 feet deep, Crater Lake National Park in Oregon is the deepest lake in the U.S.</dd>
+    <dt id="fact9" class="fact" data-id="9">Fact Number Nine</dt>
+    <dd>he smallest national park unit is part of a part of an acre in downtown Philadelphia, the Thaddeus Kosciuszko National Memorial.</dd>
+    <dt id="fact10" class="fact" data-id="10">Fact Number Ten</dt>
+    <dd>The national parks are home and habitat to more than 400 endangered or threatened plant and animal species.</dd>
+
+</dl>
+</div>
+
+<!-- jQuery and bootstrap -->
+<script src="js/jquery.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("dd").addClass("invisible");
+        $("#toggle").dblclick(function () {
+            $("dd").toggleClass("invisible");
+        });
+
+
+        $(".fact").each(function(){
+
+                var id = $(this).attr("data-id");
+                $(this).click(function(){
+                    $("#fact"+id).toggleClass("color");
+                })
+        });
+    });
+</script>
+
+</body>
+</html>
