@@ -22,6 +22,7 @@
         <h1>Would you like to sign up for our newsletter</h1>
         <span>X</span>
     </div>
+    <h2>Would you like to register?</h2>
 <h1>Fun Facts About National Parks</h1>
     <a href="#" id="toggle">Toggle on/off </a>
 <dl>
@@ -111,7 +112,13 @@
         $("span").click(function (){
             $('.hide-div').hide();
         })
-
+        //hide ul list, then when h3 is clicked, display ul
+        $("ul").addClass('invisible');
+        $("h3").click(function () {
+            $(this).next().removeClass("invisible");
+        });
+        //h2 fades in after 8 seconds on the page
+        $('h2').hide().delay(8000).fadeIn(2000);
     });
 </script>
 
