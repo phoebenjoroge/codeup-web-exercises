@@ -18,36 +18,47 @@
 </head>
 <body>
 <div class="container">
-    <div class="hide-div">
-        <h1>Would you like to sign up for our newsletter</h1>
+    <div class="alert alert-success" role="alert">
+        <h5>Would you like to sign up for our newsletter</h5>
         <span>X</span>
     </div>
     <h2>Would you like to register?</h2>
-<h1>Fun Facts About National Parks</h1>
+    <h1>Fun Facts About National Parks</h1>
     <a href="#" id="toggle">Toggle on/off </a>
-<dl>
-    <dt id="fact1" class="fact" data-id="1">Fact Number One</dt>
-    <dd>Mount McKinley in the Alaska Range of Denali National Park is the highest point in the national parks at 20,302 feet.</dd>
-    <dt id="fact2" class="fact" data-id="2">Fact Number Two</dt>
-    <dd>The parks are also home to the lowest point in the western hemisphere: Badwater Basin in Death Valley, California, is 282 feet below sea level.</dd>
-    <dt id="fact3" class="fact" data-id="3">Fact Number Three</dt>
-    <dd>California and Alaska each have eight national parks.</dd>
-    <dt id="fact4" class="fact" data-id="4">Fact Number Four</dt>
-    <dd>Arches National Park is famous for having the largest concentration of stone arches in the world.</dd>
-    <dt id="fact5" class="fact" data-id="5" >Fact Number Five</dt>
-    <dd>Everglades National Park protects more than 25% of Florida's original everglades (subtropical wetlands).</dd>
-    <dt id="fact6" class="fact" data-id="6">Fact Number Six</dt>
-    <dd>Dry Tortugas National Park in Florida is known for its world-renowned concentration of turtles.</dd>
-    <dt id="fact7" class="fact" data-id="7">Fact Number Seven</dt>
-    <dd>Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000 visitors per year.</dd>
-    <dt id="fact8" class="fact" data-id="8">Fact Number Eight</dt>
-    <dd>At 1,932 feet deep, Crater Lake National Park in Oregon is the deepest lake in the U.S.</dd>
-    <dt id="fact9" class="fact" data-id="9">Fact Number Nine</dt>
-    <dd>he smallest national park unit is part of a part of an acre in downtown Philadelphia, the Thaddeus Kosciuszko National Memorial.</dd>
-    <dt id="fact10" class="fact" data-id="10">Fact Number Ten</dt>
-    <dd>The national parks are home and habitat to more than 400 endangered or threatened plant and animal species.</dd>
+    <dl>
+        <dt id="fact1" class="fact" data-id="1">Fact Number One</dt>
+        <dd>Mount McKinley in the Alaska Range of Denali National Park is the highest point in the national parks at
+            20,302 feet.
+        </dd>
+        <dt id="fact2" class="fact" data-id="2">Fact Number Two</dt>
+        <dd>The parks are also home to the lowest point in the western hemisphere: Badwater Basin in Death Valley,
+            California, is 282 feet below sea level.
+        </dd>
+        <dt id="fact3" class="fact" data-id="3">Fact Number Three</dt>
+        <dd>California and Alaska each have eight national parks.</dd>
+        <dt id="fact4" class="fact" data-id="4">Fact Number Four</dt>
+        <dd>Arches National Park is famous for having the largest concentration of stone arches in the world.</dd>
+        <dt id="fact5" class="fact" data-id="5">Fact Number Five</dt>
+        <dd>Everglades National Park protects more than 25% of Florida's original everglades (subtropical wetlands).
+        </dd>
+        <dt id="fact6" class="fact" data-id="6">Fact Number Six</dt>
+        <dd>Dry Tortugas National Park in Florida is known for its world-renowned concentration of turtles.</dd>
+        <dt id="fact7" class="fact" data-id="7">Fact Number Seven</dt>
+        <dd>Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000
+            visitors per year.
+        </dd>
+        <dt id="fact8" class="fact" data-id="8">Fact Number Eight</dt>
+        <dd>At 1,932 feet deep, Crater Lake National Park in Oregon is the deepest lake in the U.S.</dd>
+        <dt id="fact9" class="fact" data-id="9">Fact Number Nine</dt>
+        <dd>he smallest national park unit is part of a part of an acre in downtown Philadelphia, the Thaddeus
+            Kosciuszko National Memorial.
+        </dd>
+        <dt id="fact10" class="fact" data-id="10">Fact Number Ten</dt>
+        <dd>The national parks are home and habitat to more than 400 endangered or threatened plant and animal
+            species.
+        </dd>
 
-</dl>
+    </dl>
     <button type="button" class="btn btn-secondary">Fun Button</button>
     <div>
         <h3>Acadia National Park</h3>
@@ -59,14 +70,17 @@
         <h3>National Park of American Samoa </h3>
         <ul>
             <li>located in the United States territory of American Samoa</li>
-            <li>The park preserves and protects coral reefs, tropical rainforests, fruit bats, and the Samoan culture</li>
+            <li>The park preserves and protects coral reefs, tropical rainforests, fruit bats, and the Samoan culture
+            </li>
             <li>Popular activities include hiking and snorkeling.</li>
         </ul>
         <h3>Arches National Park</h3>
         <ul>
             <li>located in eastern Utah</li>
             <li>The park contains the highest density of natural arches in the world.</li>
-            <li>Astronomy is also popular in the park due to its dark skies, despite the increasing light pollution from towns such as Moab</li>
+            <li>Astronomy is also popular in the park due to its dark skies, despite the increasing light pollution from
+                towns such as Moab
+            </li>
         </ul>
     </div>
 </div>
@@ -110,15 +124,15 @@
         });
         //hide first div when X is clicked
         $("span").click(function (){
-            $('.hide-div').hide();
+            $('.alert').hide();
         })
         //hide ul list, then when h3 is clicked, display ul
-        $("ul").addClass('invisible');
+        $("ul").hide();
         $("h3").click(function () {
-            $(this).next().removeClass("invisible");
+            $(this).next().slideToggle(1000);
         });
         //h2 fades in after 8 seconds on the page
-        $('h2').hide().delay(8000).fadeIn(2000);
+        $('h2').hide().delay(8000).fadeIn(1000);
     });
 </script>
 
