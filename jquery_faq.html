@@ -18,6 +18,10 @@
 </head>
 <body>
 <div class="container">
+    <div class="hide-div">
+        <h1>Would you like to sign up for our newsletter</h1>
+        <span>X</span>
+    </div>
 <h1>Fun Facts About National Parks</h1>
     <a href="#" id="toggle">Toggle on/off </a>
 <dl>
@@ -103,7 +107,10 @@
         $("li").click(function () {
             $(this).parent().children().first().addClass("blue");
         });
-
+        //hide first div when X is clicked
+        $("span").click(function (){
+            $('.hide-div').hide();
+        })
 
     });
 </script>
