@@ -30,5 +30,12 @@
             "tool"
         ],
         "price": 10
+    }, {
+    "title": "Clamp",
+    "quantity": 8,
+    "categories": [
+        "outdoor"
+    ],
+    "price": 50
     }
 ]

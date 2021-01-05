@@ -1,10 +1,88 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Online Store</title>
+    <style type="text/css">
+        h1{text-align: center}
+    </style>
 </head>
 <body>
-$END$
+
+<h1 class="display-4">My Tool Store</h1>
+
+
+<table class="table" id="products">
+    <thead class="thead-dark">
+    <tr>
+        <th id="title">Title</th>
+        <th id="quantity">Quantity</th>
+        <th id="price">Price</th>
+        <th id="categories">Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+<form action="">
+    <button type="button" class="btn btn-secondary">Refresh Inventory</button>
+</form>
+<script src="js/jquery.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+    (function () {
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+        // $.ajax("data/inventory.json").done(function(data) {
+        //    // alert("AJAX call completed successfully!");
+        //     console.log(data);
+        // });
+
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+        $.ajax("data/inventory.json").done(function (data) {
+            // alert("AJAX call completed successfully!");
+            // console.log(data);
+
+            $("#insertProducts").html('');
+            var DIV = '';
+            $.each(data, function (i, item) {
+                var rows = "<tr>" +
+                    "<td id='title'>" + item.title + "</td>" +
+                    "<td id='quantity'>" + item.quantity + "</td>" +
+                    "<td id='price'>" + '$' + item.price + "</td>" +
+                    "<td id='categories'>" + item.categories + "</td>" +
+                    "</tr>";
+                $('table').append(rows);
+                console.log(data);
+            });
+
+            // $( ".btn" ).click(function( e ) {
+            //     e.preventDefault();
+            //     $("#insertProducts").html('');
+            //     var DIV = '';
+            //     $.each(data, function (i, item) {
+            //         var rows = "<tr>" +
+            //             "<td id='title'>" + item.title + "</td>" +
+            //             "<td id='quantity'>" + item.quantity + "</td>" +
+            //             "<td id='price'>" +'$'+ item.price + "</td>" +
+            //             "<td id='categories'>" +  item.categories + "</td>" +
+            //             "</tr>";
+            //         $('table').append(rows);
+            //         console.log(data);
+            //     });
+            // });
+        });
+
+    })();
+</script>
+
 </body>
 </html>
