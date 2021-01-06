@@ -7,24 +7,37 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Ajax Blog</title>
-    <style type="text/css">
-        h1{text-align: center}
-        .emph {font-weight: bold;}
-        .fancy {font-style: italic }
-        .header {
-            padding: 30px;
-            font-size: 40px;
-            text-align: center;
-            background: white;
-        }
-    </style>
+    <link rel="stylesheet" href="css/ajaxblog.css">
 </head>
 <body>
     <div class="header">
         <h1>Welcome to My Ajax Blog</h1>
     </div>
 
-    <div id="posts"></div>
+    <div class="row">
+        <div class="column-one ">
+            <div class="card">
+                <div id="posts"></div>
+            </div>
+        </div>
+        <div class="column-two ">
+            <div class="card">
+                <div class = 'about' id="about"></div>
+            </div>
+            <div class="card">
+                <div id="popular">
+                    <h4>Popular Posts</h4>
+                </div>
+            </div>
+            <div class="card">
+                <h4>Follow Me</h4>
+                <div id="follow" >
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="js/jquery.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -33,20 +46,52 @@
             "use strict";
             $.ajax("data/blog.json").done(function(data) {
                // alert("AJAX call completed successfully!");
-                console.log(data);
+               //  console.log(data.blog[1].title);
                 var DIV = '';
-                $.each(data, function (i, item) {
-                    var content = "<div>" +
+                $.each(data.blog, function (i, item) {
+                    var content =
                         "<h2>" + item.title + "</h2>" +
                         "<p class = 'emph'>" + item.date + "</p>" +
-                        "<img src= "+ item.image  +">" +
+                        "<img src= "+ item.image  +" class=\"fake\" style=\"height:500px;\">" +
                         "<p>" + item.content + "</td>" +
-                        "<p class = 'fancy'>" + item.categories + "</p>" +
-                        "</div>";
+                        "<p class = 'fancy'>" + item.categories + "</p>";
                     $('#posts').append(content);
                     console.log(data);
                 });
             });
+
+            $.ajax("data/blog.json").done(function(data) {
+                console.log(data);
+                $("#about").html("<h4>" + data.about[0].title + "</h4>"
+                    + "<img src='" + data.about[0].image + "' class=\"pic\" style=\"height:180px;\">"+
+                    "<p>" + data.about[0].content + "</td>"
+                )
+            });
+
+            $.ajax("data/blog.json").done(function(data) {
+                // $("#popular").html("<h4>" + data.posts[0].title + "</h4>"
+                // )
+                var DIV = '';
+                $.each(data.posts, function (i, item) {
+                    var content =
+                        "<img src= "+ item.image  +" class=\"fake\" style=\"height:200px;\">" +
+                        "<p>" + item.content + "</td>"
+                    $('#popular').append(content);
+                    console.log(data);
+                });
+            });
+
+            $.ajax("data/blog.json").done(function(data) {
+                console.log(data);
+                $("#follow").html(
+                    "<img src='" + data.follow[0].image3 + "' class=\"follow-pic\" >"+
+                    "<img src='" + data.follow[0].image2 + "' class=\"follow-pic\">"+
+                    "<img src='" + data.follow[0].image4 + "' class=\"follow-pic\">"+
+                    "<img src='" + data.follow[0].image1 + "' class=\"follow-pic\">"
+
+                )
+            });
+
         })();
     </script>
 </body>

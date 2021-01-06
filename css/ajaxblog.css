@@ -1,0 +1,57 @@
+h1{text-align: center}
+.emph {font-weight: bold;}
+.fancy {font-style: italic }
+.about{text-align: center}
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #e0d5d7;
+}
+.column-one {
+    float: left;
+    width: 75%;
+}
+
+/* Right column */
+.column-two {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.fake {
+    background-color: #ededed;
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 10px;
+}
+.pic {
+    background-color: #ededed;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 7px;
+    margin-bottom: 10px;
+}
+.follow-pic{
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+}
