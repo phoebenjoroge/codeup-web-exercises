@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Ajax Blog</title>
+    <style type="text/css">
+        h1{text-align: center}
+        .emph {font-weight: bold;}
+        .fancy {font-style: italic }
+        .header {
+            padding: 30px;
+            font-size: 40px;
+            text-align: center;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to My Ajax Blog</h1>
+    </div>
+
+    <div id="posts"></div>
+
+    <script src="js/jquery.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        (function() {
+            "use strict";
+            $.ajax("data/blog.json").done(function(data) {
+               // alert("AJAX call completed successfully!");
+                console.log(data);
+                var DIV = '';
+                $.each(data, function (i, item) {
+                    var content = "<div>" +
+                        "<h2>" + item.title + "</h2>" +
+                        "<p class = 'emph'>" + item.date + "</p>" +
+                        "<img src= "+ item.image  +">" +
+                        "<p>" + item.content + "</td>" +
+                        "<p class = 'fancy'>" + item.categories + "</p>" +
+                        "</div>";
+                    $('#posts').append(content);
+                    console.log(data);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
