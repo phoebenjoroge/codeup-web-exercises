@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/weathermap.css">
+    <title>WeatherMap API</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Weather Forecast</h1>
+    </div>
+    <form action="">
+        <input tclass="searchValue" type="text" id="searchValue" for="searchValue" name="search">
+        <input class="button searchValue" type="submit" id="searchValue1" value="Submit">
+    </form>
+<!--    <button id="search">Search Map</button>-->
+    <div class="content"></div>
+    <div class="row">
+        <div class="column">
+            <div class="card" id="day1">
+            </div>
+        </div>
+        <div class="column">
+            <div class="card" id="day2">
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="card" id="day3">
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="card" id="day4">
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="card" id="day5">
+
+            </div>
+        </div>
+    </div>
+
+    <div id='map'></div>
+</div>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/keys.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/weathermap-api.js"></script>
+    <script src="js/weather.js"></script>
+</body>
+</html>
