@@ -81,7 +81,7 @@ let searchString = prompt("What would you like to see?");
 geocode(searchString , mapBoxToken).then(function (result){
     console.log(result);
      //map.setCenter(result);
-    map.flyTo({center: result, zoom: 14, speed: 0.8, curve:1});
+    map.flyTo({center: result, zoom: 14, speed: 0.3, curve:1});
     //map.setZoom(15);
     marker.setLngLat(result);
 

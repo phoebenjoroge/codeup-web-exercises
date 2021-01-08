@@ -44,6 +44,8 @@
     <script>
         (function() {
             "use strict";
+
+            //main section
             $.ajax("data/blog.json").done(function(data) {
                // alert("AJAX call completed successfully!");
                //  console.log(data.blog[1].title);
@@ -56,10 +58,12 @@
                         "<p>" + item.content + "</td>" +
                         "<p class = 'fancy'>" + item.categories + "</p>";
                     $('#posts').append(content);
-                    console.log(data);
+
+
                 });
             });
 
+            //about section
             $.ajax("data/blog.json").done(function(data) {
                 console.log(data);
                 $("#about").html("<h4>" + data.about[0].title + "</h4>"
@@ -68,19 +72,20 @@
                 )
             });
 
+            //popular post section
             $.ajax("data/blog.json").done(function(data) {
                 // $("#popular").html("<h4>" + data.posts[0].title + "</h4>"
                 // )
-                var DIV = '';
                 $.each(data.posts, function (i, item) {
-                    var content =
+                    var popular =
                         "<img src= "+ item.image  +" class=\"fake\" style=\"height:200px;\">" +
                         "<p>" + item.content + "</td>"
-                    $('#popular').append(content);
+                    $('#popular').append(popular);
                     console.log(data);
                 });
             });
 
+            //follow section
             $.ajax("data/blog.json").done(function(data) {
                 console.log(data);
                 $("#follow").html(
@@ -88,7 +93,6 @@
                     "<img src='" + data.follow[0].image2 + "' class=\"follow-pic\">"+
                     "<img src='" + data.follow[0].image4 + "' class=\"follow-pic\">"+
                     "<img src='" + data.follow[0].image1 + "' class=\"follow-pic\">"
-
                 )
             });
 
