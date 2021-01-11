@@ -13,12 +13,16 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>Weather Forecast</h1>
+        <h1> Five-Day Weather Forecast</h1>
     </div>
-    <form action="">
-        <input tclass="searchValue" type="text" id="searchValue" for="searchValue" name="search">
-        <input class="button searchValue" type="submit" id="searchValue1" value="Submit">
-    </form>
+    <div class="city">
+        <form action="">
+            <input class="searchValue" type="text" id="searchValue" for="searchValue" name="search" placeholder="Enter City">
+            <input class="button searchValue" type="submit" id="searchValue1" value="Submit">
+        </form>
+        <p id="updateCity"> </p>
+    </div>
+
 <!--    <button id="search">Search Map</button>-->
     <div class="content"></div>
     <div class="row">

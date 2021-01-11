@@ -33,33 +33,93 @@ $(document).ready(function (){
         lon: latitude,
         units: "imperial"
     }).done(function(data) {
-        // console.log(data );
+         // console.log(data.city.name );
 
-
+        $("#updateCity").html("<p>" + '<strong>'+ 'Current City: ' + '</strong>' + data.city.name  + "</p>");
 
 
     });
 
-    // var marker = new mapboxgl.Marker({
-    //     draggable: true,
-    //     color: 'purple',
+    var marker = new mapboxgl.Marker({
+        draggable: true,
+        color: 'purple',
+    })
+        .setLngLat([latitude, longitude])
+        .addTo(map);
+
+
+    marker.on('dragend', function (e){
+        // console.log(e);
+
+        geocode(search , mapBoxToken).then(function (result) {
+            console.log(result);
+            var latitude = result[0];
+            var longitude = result[1];
+
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: OPEN_WEATHER_APPID,
+                lat: longitude,
+                lon: latitude,
+                units: "imperial"
+            }).done(function (data) {
+                console.log(data);
+                $("#updateCity").html("<p>" + '<strong>' + 'Current City: ' + '</strong>' + data.city.name + "</p>");
+                // for (var i = 0; i < data.list.length; i= i+8) {
+                //
+                //     var content =
+                //         "<p>" + '<u>' + data.list[i].dt_txt + '</u>' + "</p>" +
+                //         "<p>" + '<strong>' + data.list[i].main.temp_min + ' / ' + data.list[i].main.temp_max + '</strong>' + "</p>" +
+                //         '<img src="http://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png" width="50" height="50" />' +
+                //         "<p>" + 'Description: ' + '<strong>' + data.list[i].weather[0].description + '</strong>' + "</p>" +
+                //         "<p>" + 'Humidity: ' + '<strong>' + data.list[i].main.humidity + '</strong>' + "</p>" +
+                //         "<p>" + 'Wind: ' + '<strong>' + data.list[i].wind.speed + '</strong>' + "</p>" +
+                //         "<p>" + 'Pressure: ' + '<strong>' + data.list[i].main.pressure + '</strong>' + "</p>"+
+                //         '<br>'
+                //     $('.card').append(content)
+                //
+                //
+                // }
+            })
+        })
+
+    })
+
+    // var updateMarker;
+    // map.on('click', function(e) {
+    //     updateMarker =new mapboxgl.Marker({
+    //         draggable: true,
+    //         color: 'purple',
+    //     })
+    //         .setLngLat([latitude, longitude])
+    //         .addTo(map);
+    //     console.log(e);
     // })
-    //     .setLngLat([latitude, longitude])
-    //     .addTo(map);
-
-
-
-
-
 
     $(".button").click(function(e){
         e.preventDefault()
-        let searchString = $("#inputAddress").val();
+        let searchString = $(".searchValue").val();
 
         geocode(searchString , mapBoxToken).then(function (result){
-            console.log(result);
+            console.log(searchString);
+            // console.log(result);
             //map.setCenter(result);
-            map.flyTo({center: result, zoom: 10, speed: 0.8, curve:1});
+
+            //weather update
+            var latitude = result[0]
+            var longitude = result[1]
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: OPEN_WEATHER_APPID,
+                lat: longitude,
+                lon: latitude,
+                units: "imperial"
+            }).done(function (data) {
+                // console.log(data.city.name);
+                $("#updateCity").html("<p>" + '<strong>'+ 'Current City: ' + '</strong>' + data.city.name  + "</p>");
+
+                dayInfo(data);
+            });
+
+            map.flyTo({center: result, zoom: 7, speed: 0.9, curve:1});
             // map.setZoom(10);
             marker.setLngLat(result);
 
@@ -72,5 +132,6 @@ $(document).ready(function (){
 
 
     });
+
 
 })
