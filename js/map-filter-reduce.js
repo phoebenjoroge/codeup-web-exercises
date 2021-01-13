@@ -36,12 +36,15 @@ const users = [
     }
 ];
 
-//Two
+//Two -Filter
 let languageFilter = users.filter(user => user.languages.length >= 3);
 console.table(languageFilter);
 
-//Three
+//Three -Map
 var userEmail = users.map(user => user.email);
 console.log(userEmail);
 
-//Four
+//Four -Reduce
+let averageYears = users.reduce((total, user) => total + user.yearsOfExperience, 0);
+averageYears= averageYears/users.length;
+console.log(averageYears);
