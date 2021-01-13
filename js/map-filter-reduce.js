@@ -48,3 +48,14 @@ console.log(userEmail);
 let averageYears = users.reduce((total, user) => total + user.yearsOfExperience, 0);
 averageYears= averageYears/users.length;
 console.log(averageYears);
+
+//Five Reduce
+let longestEmail = users.reduce((current, user) => user.email.length > current.email.length ? user : current, users[0]);
+console.log(longestEmail.email);
+
+//Six Reduce
+let userNames = users.reduce(function(a, user) {
+    return [...a, user.name];
+}, []);
+let userNameString = 'Your instructors are: ' + userNames.join(', ') + '.';
+console.log(userNameString);
