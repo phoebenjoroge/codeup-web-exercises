@@ -42,8 +42,27 @@ $(document).ready(function() {
 
     // Print a list of id's of the mbpModels array
     //  1. Use forEach()
+    let ids = [];
+    mbpModels.forEach(function(mbp) {
+        ids.push(mbp.id)
+    });
+    /******** 4 lines of code **********/
+
+    $("#forEach").html(createList(ids));
+
     //  2. Use map()
+    let idsMap = mbpModels.map(function(mbp) {
+        return mbp.id;
+    })
+    /******** 3 lines of code ***********/
+    console.log("idsMap: ");
+    console.log(idsMap);
+
     //  3. Use ES6
+    var idsES6 = mbpModels.map(mbp => mbp.id);
+    // ****** 1 line of code!!!! **********
+    console.log("idsES6: ");
+    console.log(idsES6);
 
 
     /********************************* 1 *********************************/
@@ -97,12 +116,32 @@ $(document).ready(function() {
     /********************************* 1 *********************************/
     //  1. Use forEach()
 
+    let forEach2011 = [];
+    mbpModels.forEach(function(mbp) {
+        // get the current year
+        let thisModelYear = getYear(mbp.year); // 2006 for the first element in the array
+
+        if(thisModelYear >= 2011) {
+            // list the description and the year string in the forEach2011 array
+            forEach2011.push(mbp.desc + ' <strong>(' + mbp.year + ')</strong>');
+            // i.e. "Apple MacBook Pro 15-Inch "Core Duo" 2.0 (2006)"
+        }
+    });
+    $("#filterForEach").html(createList(forEach2011));
     /********************************* 2 *********************************/
     //  2. Use filter()
+
+    let filter2011 = mbpModels.filter(function(mbp) {
+            return getYear(mbp.year) >= 2011;
+        });
+    console.table(filter2011);
 
     /********************************* 3 *********************************/
     //  3. Use ES6
 
+    let es62011 = mbpModels.filter(mbp => getYear(mbp.year) >= 2011);
+    console.log("es62011: ");
+    console.log(es62011);
 
     // *****************   ******     ******************//
     // **************  TODO: REDUCE() ******************//
@@ -116,12 +155,25 @@ $(document).ready(function() {
     /********************************* 1 *********************************/
     //  1. Use forEach()
 
+    let totalValueFE = 0;
+    mbpModels.forEach(function(mbp) {
+        totalValueFE += mbp.price;
+    })
+    console.log("Total forEach: " + totalValueFE);
+    $("#reduceForEach").html(commaThousands(totalValueFE));
     /********************************* 2 *********************************/
     //  2. Use reduce()
+    let totalValueReduce = mbpModels.reduce(function (total, mbp) {
+            return total += mbp.price; // i.e. 0 + 3199 - first iteration through
+        }, 0);
+    console.log("Total Value Reduced: " + totalValueReduce);
+
 
     /********************************* 3 *********************************/
     //  3. Use ES6
 
+    let totalValueES6 = mbpModels.reduce((total, mbp) => total + mbp.price, 0);
+    console.log("Total Value ES6: " + commaThousands(totalValueES6));
 
     /**************************** LEAVE IN FOR STUDENTS **(********************************/
     /*********************** function to get commas in number *****************************/
